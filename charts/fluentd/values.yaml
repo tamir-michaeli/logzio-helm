@@ -23,6 +23,8 @@ isRBAC: true
 
 serviceAccount:
   name: ""
+isnew:
+  enabled: true
 
 fargateLogRouter:
   enabled: false
