@@ -81,6 +81,23 @@ entries:
   logzio-fluentd:
   - apiVersion: v2
     appVersion: 1.2.0
+    created: "2022-12-06T12:35:29.433251618Z"
+    description: A Helm chart for shipping Kubernetes logs via Fluentd.
+    digest: c092c8e12d8ce936cf44b3a87b0f66e6a4c8b78e7c2de97c62bfaf0d7350dafb
+    keywords:
+    - logging
+    - fluentd
+    maintainers:
+    - email: miri.ignatiev@logz.io
+      name: Miri Ignatiev
+    - email: tamir.michaeli@logz.io
+      name: Tamir Michaeli
+    name: logzio-fluentd
+    urls:
+    - https://github.com/tamir-michaeli/logzio-helm/releases/download/logzio-fluentd-0.29.6/logzio-fluentd-0.29.6.tgz
+    version: 0.29.6
+  - apiVersion: v2
+    appVersion: 1.2.0
     created: "2022-12-06T10:26:52.964487413Z"
     description: A Helm chart for shipping Kubernetes logs via Fluentd.
     digest: 9f61094a88fda4faf4a3e6a2251542c39d3117a5a942ec9a612cfa56cc59fc40
@@ -1372,6 +1389,33 @@ entries:
     version: 0.0.1
   logzio-monitoring:
   - apiVersion: v2
+    created: "2022-12-06T12:35:29.598197337Z"
+    dependencies:
+    - condition: logs.enabled
+      name: logzio-fluentd
+      repository: https://logzio.github.io/logzio-helm/
+      version: 0.14.0
+    - condition: metricsOrTraces.enabled
+      name: logzio-k8s-telemetry
+      repository: https://logzio.github.io/logzio-helm/
+      version: 0.0.18
+    description: logzio-monitoring allows you to ship logs, metrics and traces from
+      your Kubernetes cluster using the OpenTelemetry collector for metrics and traces,
+      and Fluentd for logs.
+    digest: fe54568bf306ba2d530c9ad1e17ad7c513041152e4a4362598b05e12f07debb7
+    maintainers:
+    - email: tamir.michaeli@logz.io
+      name: tamirmich
+    - email: miri.ignatiev@logz.io
+      name: miriig
+    name: logzio-monitoring
+    sources:
+    - https://github.com/logzio/logzio-helm
+    type: application
+    urls:
+    - https://github.com/tamir-michaeli/logzio-helm/releases/download/logzio-monitoring-0.1.16/logzio-monitoring-0.1.16.tgz
+    version: 0.1.16
+  - apiVersion: v2
     created: "2022-12-01T12:58:51.007863+02:00"
     dependencies:
     - condition: logs.enabled
@@ -2185,4 +2229,4 @@ entries:
     urls:
     - https://logzio.github.io/logzio-helm/logzio-otel-traces-0.0.1.tgz
     version: 0.0.1
-generated: "2022-12-06T10:26:52.965028618Z"
+generated: "2022-12-06T12:35:29.598628437Z"
