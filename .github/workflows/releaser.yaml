@@ -34,6 +34,11 @@ jobs:
         env:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
           
+      - id: fetch-latest-release
+        uses: thebritican/fetch-latest-release@v1
+        with:
+          github_token: ${{ github.token }}
+          
       - name: Send custom JSON data to Slack workflow
         id: slack
         uses: slackapi/slack-github-action@v1.23.0
@@ -41,10 +46,10 @@ jobs:
         # This data can be any valid JSON from a previous step in the GitHub Action
           payload: |
             {
-              "integration_name": "test",
-              "new_version": "version" ,
+              "integration_name": "${{ steps.step1.fetch-latest-release.name }}",
+              "new_version": "${{ steps.step1.fetch-latest-release.tag_name }}" ,
               "changes": "${{ github.event.head_commit.message }}",
-              "author": "${{ github.event.head_commit.actor.display_login }}",
+              "author": "${{ steps.step1.fetch-latest-release.author_login }}",
               "repo_url": "https://github.com/${{github.repository}}"
             }
         env:
