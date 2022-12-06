@@ -43,7 +43,9 @@ jobs:
             {
               "integration_name": "test",
               "new_version": "version" ,
-              "changes": "${{ github.event.head_commit.message }}"
+              "changes": "${{ github.event.head_commit.message }}",
+              "author": "${{ github.event.head_commit.user.login }}"
+              "repo_url": "https://github.com/${{github.repository}}"
             }
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
