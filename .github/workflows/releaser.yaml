@@ -49,7 +49,7 @@ jobs:
               "integration_name": "${{ steps.fetch-latest-release.outputs.name }}",
               "new_version": "${{ steps.fetch-latest-release.outputs.tag_name }}" ,
               "changes": ${{ toJSON(github.event.head_commit.message) }},
-              "author": "${{ steps.fetch-latest-release.outputs.author_login }}",
+              "author": "${{ github.event.commits[0].author.name }}",
               "repo_url": "https://github.com/${{github.repository}}"
             }
         env:
