@@ -46,10 +46,10 @@ jobs:
         # This data can be any valid JSON from a previous step in the GitHub Action
           payload: |
             {
-              "integration_name": "${{ needs.fetch-latest-release.name }}",
-              "new_version": "${{ needs.fetch-latest-release.tag_name }}" ,
-              "changes": "${{ github.event.head_commit.message }}",
-              "author": "${{ needs.fetch-latest-release.author_login }}",
+              "integration_name": "${{ needs.fetch-latest-release.outputs.name }}",
+              "new_version": "${{ needs.fetch-latest-release.outputs.tag_name }}" ,
+              "changes": "${{ toJSON(github.event.head_commit.message) }}",
+              "author": "${{ needs.fetch-latest-release.outputs.author_login }}",
               "repo_url": "https://github.com/${{github.repository}}"
             }
         env:
