@@ -81,6 +81,23 @@ entries:
   logzio-fluentd:
   - apiVersion: v2
     appVersion: 1.2.0
+    created: "2022-12-06T10:09:46.235641805Z"
+    description: A Helm chart for shipping Kubernetes logs via Fluentd.
+    digest: c61826253add795f3e2086248a988ef612a7c6bf97c14d6ebabc030fe5d09e96
+    keywords:
+    - logging
+    - fluentd
+    maintainers:
+    - email: miri.ignatiev@logz.io
+      name: Miri Ignatiev
+    - email: tamir.michaeli@logz.io
+      name: Tamir Michaeli
+    name: logzio-fluentd
+    urls:
+    - https://github.com/tamir-michaeli/logzio-helm/releases/download/logzio-fluentd-0.29.1/logzio-fluentd-0.29.1.tgz
+    version: 0.29.1
+  - apiVersion: v2
+    appVersion: 1.2.0
     created: "2022-12-06T10:05:32.545215961Z"
     description: A Helm chart for shipping Kubernetes logs via Fluentd.
     digest: 7eb456bbc679698bf2ca255422bf634a109143353deded7b226d8b0974395c13
@@ -2100,4 +2117,4 @@ entries:
     urls:
     - https://logzio.github.io/logzio-helm/logzio-otel-traces-0.0.1.tgz
     version: 0.0.1
-generated: "2022-12-06T10:05:32.545781669Z"
+generated: "2022-12-06T10:09:46.236044813Z"
