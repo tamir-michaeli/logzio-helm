@@ -32,3 +32,18 @@ jobs:
         uses: helm/chart-releaser-action@v1.4.1
         env:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          
+      - name: Send custom JSON data to Slack workflow
+        id: slack
+        uses: slackapi/slack-github-action@v1.23.0
+        with:
+        # This data can be any valid JSON from a previous step in the GitHub Action
+          payload: |
+            {
+              "integration_name": "test",
+              "new_version": "version" ,
+              "changes": ${{ github.event.head_commit.message }}
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
