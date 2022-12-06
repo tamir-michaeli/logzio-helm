@@ -37,7 +37,7 @@ jobs:
       - id: fetch-latest-release
         uses: thebritican/fetch-latest-release@v2.0.0
         with:
-          github_token: ${{ github.token }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           
       - name: Send custom JSON data to Slack workflow
         id: slack
@@ -48,7 +48,7 @@ jobs:
             {
               "integration_name": "${{ needs.fetch-latest-release.outputs.name }}",
               "new_version": "${{ needs.fetch-latest-release.outputs.tag_name }}" ,
-              "changes": "${{ toJSON(github.event.head_commit.message) }}",
+              "changes": ${{ toJSON(github.event.head_commit.message) }},
               "author": "${{ needs.fetch-latest-release.outputs.author_login }}",
               "repo_url": "https://github.com/${{github.repository}}"
             }
