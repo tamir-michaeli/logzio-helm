@@ -37,7 +37,7 @@ jobs:
       - id: fetch-latest-release
         uses: gregziegan/fetch-latest-release@v2.0.0
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.MY_GITHUB_TOKEN }}
           
       - name: Send custom JSON data to Slack workflow
         id: slack
